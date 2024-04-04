@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
 
+<!-- Remotes -->
   <remote  name="aosp"
     fetch="https://android.googlesource.com/" />
+  <remote name="overdose"
+    fetch="https://github.com/mrdarkness-google-pixel5-project/" />
+  
+  <!-- Revision Controls -->
   <default revision="android-msm-redbull-4.19-android14"
     remote="aosp" sync-j="4" />
 
+
   <project path="build" name="kernel/build" groups="partner"/>
-  <project path="private/msm-google" name="kernel/msm" groups="partner">
+  <project path="private/msm-google" name="kernel_google_redbull" remote="overdose" revision="overdose-14-stock">
     <linkfile dest="build.config" src="build.config.redbull.no-cfi"/>
     <linkfile dest="build_redbull-gki.sh" src="build_redbull-gki.sh"/>
     <linkfile dest="build_redbull.sh" src="build_redbull.sh"/>
